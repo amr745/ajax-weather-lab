@@ -3,7 +3,11 @@ body{}
 
 h1{}
 
-.myList{}
+.myList{
+    list-style-type: none;
+    padding-left: 0pt;
+    line-height: 40px;
+}
 
 .li{}
 
@@ -17,4 +21,7 @@ h1{}
 
 #texBox{}
 
-#subBut{}
+button{
+    background-color: transparent;
+    border-color: lightgray;
+}
