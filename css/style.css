@@ -1,25 +1,8 @@
-
-body{}
-
-h1{}
-
 .myList{
     list-style-type: none;
     padding-left: 0pt;
     line-height: 40px;
 }
-
-.li{}
-
-#one{}
-
-#two{}
-
-#three{}
-
-#four{}
-
-#texBox{}
 
 button{
     background-color: transparent;
