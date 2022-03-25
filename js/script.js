@@ -5,9 +5,9 @@ const $button = $("button")
 
 
 $button.on("click",() =>{
-    let CITYNAME = $input.val()
+    let cityName = $input.val()
     $.ajax({
-        url:`https://api.openweathermap.org/data/2.5/weather?q=${CITYNAME}&appid=${APIKEY}`
+        url:`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${APIKEY}`
     }).then((data) => {
         console.log(data);
         $('#name').text(`Weather For: ${data.name}`);
@@ -15,4 +15,11 @@ $button.on("click",() =>{
         $('#feelsLike').text(`Feels Like: ${Math.round(((data.main.feels_like-273.15)*1.8)+32)}\xB0`);
         $('#weather').text(`Weather: ${data.weather[0].description}`);
     })
+
+    const remove = (event) => {
+        const $target = $(event.$input)
+    }
+    
+    $button.on("click", remove)
+    $input.val("")
 })
