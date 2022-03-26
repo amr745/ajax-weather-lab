@@ -9,11 +9,14 @@ $button.on("click",() =>{
     $.ajax({
         url:`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${APIKEY}`
     }).then((data) => {
-        console.log(data);
+        let weather = $(data.weather)
         $('#name').text(`Weather For: ${data.name}`);
         $('#temp').text(`Temperature: ${Math.round(((data.main.temp-273.15)*1.8)+32)}\xB0`);
         $('#feelsLike').text(`Feels Like: ${Math.round(((data.main.feels_like-273.15)*1.8)+32)}\xB0`);
-        $('#weather').text(`Weather: ${data.weather[0].description}`);
+        // last night the weather in New York was terrible so there was more than one array in the weather property therefore there was more than one deescription property.
+        // I built this for loop to display all description values regardless of the number of arrays
+        for (let i = 0; i < weather.length; i++)
+        $('#weather').text(`Weather: ${weather[i].description}`);
     })
 
     const remove = (event) => {
